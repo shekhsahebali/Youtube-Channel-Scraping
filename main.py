@@ -37,9 +37,9 @@ OUTPUT_FILE_NAME= HANDALE+'_data.csv'
 # ==========================
 options = Options()
 options.binary_location = "../chromium/chrome"
-options.add_argument("--disable-gpu")
-options.add_argument("--headless=new")
-options.add_argument("--no-sandbox")
+# options.add_argument("--disable-gpu")
+# options.add_argument("--headless=new")
+# options.add_argument("--no-sandbox")
 options.add_argument("--start-maximized")
 
 service = Service("../chromiumdriver/chromedriver")
@@ -107,7 +107,7 @@ wait.until(
 print("Scrolling to end of page...")
 start_time = time.time()
 scroll_to_end(driver)
-
+driver.minimize_window()
 
 
 videos = driver.find_elements(By.CSS_SELECTOR, "ytd-rich-item-renderer")
